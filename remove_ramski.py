@@ -532,15 +532,12 @@ def print_summary() -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--email", default="your@email.com",
+    parser.add_argument("--email", default="dramski1@icloud.com",
                         help="Email address for broker confirmation links")
     parser.add_argument("--dry-run", action="store_true",
                         help="Print actions without sending requests")
     args = parser.parse_args()
 
-    if args.email == "your@email.com" and not args.dry_run:
-        print("WARNING: No --email provided; using placeholder 'your@email.com'.")
-        print("         Run with --email your@real.email for confirmations to work.\n")
 
     print(f"Scanning {len(BROKERS)} data brokers for '{TARGET_NAME}'...")
     if args.dry_run:
